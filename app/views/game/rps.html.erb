@@ -51,30 +51,30 @@
 
         <tr>
           <td>rock</td>
-          <td>3</td>
-          <td>0</td>
-          <td>1</td>
+          <td><%=@r_wins%></td>
+          <td><%=@r_loss%></td>
+          <td><%=@r_tie%></td>
         </tr>
 
         <tr>
           <td>paper</td>
-          <td>0</td>
-          <td>1</td>
-          <td>1</td>
+          <td><%=@p_wins%></td>
+          <td><%=@p_loss%></td>
+          <td><%=@p_tie%></td>
         </tr>
 
         <tr>
           <td>scissors</td>
-          <td>1</td>
-          <td>2</td>
-          <td>2</td>
+          <td><%=@s_wins%></td>
+          <td><%=@s_loss%></td>
+          <td><%=@s_tie%></td>
         </tr>
 
         <tr>
           <th>Total</th>
-          <th>4</th>
-          <th>3</th>
-          <th>4</th>
+          <th><%=@total_w%></th>
+          <th><%=@total_l%></th>
+          <th><%=@total_t%></th>
         </tr>
       </table>
     </div>
@@ -84,7 +84,7 @@
       <div class="panel-heading">
         <h5 class="panel-title">
           Complete history
-          (11)
+          (<%=@records%>)
         </h5>
       </div>
 
@@ -97,83 +97,30 @@
           <th>Tie</th>
         </tr>
 
-          <tr>
-            <td>rock</td>
-            <td>scissors</td>
-            <td>1</td>
-            <td>0</td>
-            <td>0</td>
+        <% @all_moves.each do |move| %>
+         <tr>
+          	<td>
+          		<%= move.user_move%>
+          	</td>
+          	
+          	<td>
+          		<%= move.computer_move%>
+          	</td>
+          	<td>
+          		<%= move.user_wins%>
+          	</td>
+
+            <td>	
+            	<%= move.computer_wins%>
+            </td>
+            
+            <td>
+            	<%= move.tie%>
+            </td>
           </tr>
-          <tr>
-            <td>rock</td>
-            <td>rock</td>
-            <td>0</td>
-            <td>0</td>
-            <td>1</td>
-          </tr>
-          <tr>
-            <td>rock</td>
-            <td>scissors</td>
-            <td>1</td>
-            <td>0</td>
-            <td>0</td>
-          </tr>
-          <tr>
-            <td>paper</td>
-            <td>paper</td>
-            <td>0</td>
-            <td>0</td>
-            <td>1</td>
-          </tr>
-          <tr>
-            <td>scissors</td>
-            <td>rock</td>
-            <td>0</td>
-            <td>1</td>
-            <td>0</td>
-          </tr>
-          <tr>
-            <td>scissors</td>
-            <td>scissors</td>
-            <td>0</td>
-            <td>0</td>
-            <td>1</td>
-          </tr>
-          <tr>
-            <td>scissors</td>
-            <td>scissors</td>
-            <td>0</td>
-            <td>0</td>
-            <td>1</td>
-          </tr>
-          <tr>
-            <td>scissors</td>
-            <td>paper</td>
-            <td>1</td>
-            <td>0</td>
-            <td>0</td>
-          </tr>
-          <tr>
-            <td>scissors</td>
-            <td>rock</td>
-            <td>0</td>
-            <td>1</td>
-            <td>0</td>
-          </tr>
-          <tr>
-            <td>paper</td>
-            <td>scissors</td>
-            <td>0</td>
-            <td>1</td>
-            <td>0</td>
-          </tr>
-          <tr>
-            <td>rock</td>
-            <td>scissors</td>
-            <td>1</td>
-            <td>0</td>
-            <td>0</td>
-          </tr>
+
+     <% end %>
+
       </table>
     </div>
   </div>
